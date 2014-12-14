@@ -2,12 +2,12 @@
 
 int main()
 {
-    int debug=0;
-    int debug_input=0;
-    int N=100;
-    if(1==debug){N=4;}
+    int N;
+
+    scanf("%d",&N);
+
     char xpos_human[N]; //вертикаль a-h
-    int ypos_human[N];// горизонталь 1-8
+    char ypos_human[N];// горизонталь 1-8
     int pos[N][2]; //координата N:x и N:y
     int movenum[N];
 
@@ -15,22 +15,13 @@ int main()
     int j;
     int k;
 
+
     for (i=0;i<N;i++)
     {
         pos[i][0]=0;pos[i][1]=1;ypos_human[i]=0;
-        if(EOF==scanf("\n%c%d",&xpos_human[i],&ypos_human[i])){break;}
-        if(1==debug_input){printf("i=[%d] ; xh:%c ; yh:%d\n",i,xpos_human[i],ypos_human[i]);}
+        scanf("\n%c%c",&xpos_human[i],&ypos_human[i]);
         pos[i][0] = xpos_human[i]-'a';
-        pos[i][1] = ypos_human[i]-1;
-    }
-
-    if(1==debug_input)
-    {
-        for (j=0;j<i;j++)
-        {
-            printf("x[%d] : %d ; y[%d] : %d\n",j,pos[j][0],j,pos[j][1]);
-        }
-        return 0;
+        pos[i][1] = ypos_human[i]-'1';
     }
 
     for (j=0;j<N;j++)
